@@ -1,0 +1,22 @@
+<div class="signin-container">
+    <mat-card class="verify-container" [class.in-bg]="verificationSended">
+        <div class="verify-img-container">
+            <div><img src="assets/img/icons/mail.png" alt="Mail Icon" class="noselect"></div>
+        </div>
+        <h1>Verify your email address</h1>
+        <hr>
+        <span>
+            In order to start using your <strong>{{ appComponent.title }}</strong> Account,
+            please verify your email
+            <strong>{{ authentication.getEmail() }}</strong>
+        </span>
+        <button (click)="sendVerification()" class="noselect">
+            Send Verification Email
+        </button>
+    </mat-card>
+
+    <div class="verification-sent" [class.d-none]="!verificationSended">
+        Verification Email sent to<br>
+        <strong>{{ authentication.getEmail() }}</strong>
+    </div>
+</div>

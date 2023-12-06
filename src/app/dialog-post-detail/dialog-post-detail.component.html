@@ -1,0 +1,59 @@
+<section>
+  <div class="container">
+      <div class="header">
+          <h2>Thread </h2>
+          <mat-icon (click)="closeDialog()"> close </mat-icon>
+      </div>
+      <div class="main-content">
+          
+          <div class="single-post">
+         
+              <app-post [post]="post"></app-post>
+              <hr *ngIf="post.replay.length > 0">
+              <!-- <div  *ngIf="post.replay.length > 0">{{post.replay.length}} {{post.replay.length === 1 ? 'reply' : 'replies'}}</div> -->
+
+
+              <div class="replies-container">
+                <div *ngFor="let reply of replies" class="reply">
+
+
+                    <!-- Testbereich von hideThread -->
+
+                    <div class="post">
+<!-- 
+                        <img class="profile-pic" src= {{reply.userImage}} alt=""> -->
+                        <img class="profile-pic" src= {{getOtherUserPhoto(reply.userId)}} alt="">
+
+                        <div class="right-area">
+                            <div class="post-header">                             
+                                <!-- <h3>{{ reply.username }}</h3> -->
+                                <h3>{{ getUserName(reply.userId) }}</h3>
+                                <div  class="text-small">before {{ reply.timestamp | relativeTime }}</div>
+                            </div>
+                            <div class="post-message" [innerHTML]="reply.message"></div>
+                        </div>
+
+                    </div>
+                    <!-- </div> -->
+
+
+
+                    <!-- testbereich bis hier  -->
+
+
+    
+                </div>
+            </div>
+
+
+          </div>
+      </div>
+       <div class="app-text-edit">
+        <app-text-edit [postId]="post.id" context="reply"></app-text-edit>
+     </div>
+  </div>
+   
+</section>
+
+  
+

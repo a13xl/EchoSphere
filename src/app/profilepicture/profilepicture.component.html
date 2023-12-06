@@ -1,0 +1,5 @@
+<div *ngFor="let avatar of avatars">
+    <div>
+      <img [src]="avatar" (click) = "useAvatar(avatar)" />
+    </div>
+</div>

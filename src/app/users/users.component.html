@@ -1,0 +1,28 @@
+<section>
+    <div class="users-fixed-container">
+        <div class="users-header">
+            <p>People</p>
+            <button class="noselect" (click)="invitePeople()">
+                Invite People
+            </button>
+        </div>
+        <div (click)="searchUser.focus()" class="users-search noselect">
+            <img src="assets/img/icons/search.png" alt="Search Icon">
+            <input #searchUser type="text" placeholder="Search by name or email" [(ngModel)]="inputValue"
+                (keyup)="searchUsers(searchUser.value)">
+            <mat-icon *ngIf="inputValue" (click)="clearSearchbar()">close</mat-icon>
+        </div>
+        <div class="num-of-users-container"><span>{{ numOfUsers || 0 }} {{ userOrUsersString }} found</span></div>
+    </div>
+
+    <div class="users-container emulated-flex-gap">
+        <div class="user-container" *ngFor="let user of users" (click)="showUser(user)">
+            <img src="{{ user.photo }}" alt="Profile Photo from {{ user.username }}">
+            <div class="username">
+                <span>
+                    {{ user.username }} <p *ngIf="user.id == currentUserId">(you)</p>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>

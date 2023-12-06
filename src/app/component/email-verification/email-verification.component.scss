@@ -1,0 +1,59 @@
+// import sign in style
+@import "src/app/sign-in/sign-in.component.scss";
+
+.verify-container {
+    h1, span {
+        text-align: center;
+        line-height: normal;
+        line-break: auto;
+    }
+
+    hr {
+        width: 100%;
+    }
+
+    span {
+        padding: 20px 0 40px;
+        font-size: 24px;
+    }
+}
+
+.verify-img-container {
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+
+    div {
+        height: calc(20px + 50px);
+        width: calc(20px + 50px);
+        border: 4px solid $btn-background;
+        border-radius: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        width: 50px;
+        filter: invert(65%) sepia(12%) saturate(2052%) hue-rotate(170deg) brightness(88%) contrast(89%);
+    }
+}
+
+.verification-sent {
+    position: absolute;
+    padding: 20px 30px;
+    
+    background-color: #004164;
+    box-shadow: $card-box-shadow;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    line-height: normal;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+}

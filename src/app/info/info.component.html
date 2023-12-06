@@ -1,0 +1,22 @@
+<div *ngIf="visible" class="infoBox">
+
+    <h2 mat-dialog-title>Support-Themen</h2>
+    <video autoplay loop src="../assets/video/video2.mp4"></video>
+
+    <a routerLink="/directMessages">
+        <button><img src="../assets/img/Direktnachrichten.png"><span>Direct Messages</span></button>
+    </a>
+    <a routerLink="/configureNotifications">
+        <button><img src="../assets/img/configureNotifications.png"><span>Configure Notifications</span></button>
+    </a>
+    <a routerLink="/status">
+        <button><img src="../assets/img/Status.png"><span>Set status and availability</span></button>    
+    </a>
+    <a routerLink="/set-up-reminders">
+        <button><img src="../assets/img/set-up-reminders.png"><span>Set up reminders</span></button>
+    </a>
+    <a routerLink="/imprint">
+        <button><img src="../assets/img/Impressum.png"><span>Imprint and data protection</span></button>
+    </a>
+    <button (click)="closeDialog()"><img src="../assets/img/Close.png"><span>Close</span></button>
+</div>

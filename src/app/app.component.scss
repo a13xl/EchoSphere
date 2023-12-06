@@ -1,0 +1,272 @@
+// import globale style
+@import "src/_globals.scss";
+
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+.header-left, .header-right{
+    display:flex;
+    gap: 1rem;
+    align-items: center;
+
+}
+
+
+.loginAvatar{
+    border-radius:10px;
+}
+
+.router{
+    width:100%
+}
+
+// ________________________________________________________
+
+
+// Info & Avartar header (anja)
+// .infoButten{
+//     margin-left: 30px;
+//     background-color: $background-second;
+//     border: none;
+//     color: $color-text;
+//     font-size: 16px;
+//     border-radius: 50%;
+//     border: 1px solid white;
+// }
+
+// new Class for info button, please do not change
+.infoBtn{
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.setStatus{
+    border-radius: 50%;
+}
+
+.box {
+    margin-left: auto 
+}
+.content {
+    display: flex;
+    flex-direction: row;
+}
+//---------------------------
+mat-expansion-panel-header:hover {
+    background-color:unset !important;
+}
+
+.mat-expansion-panel-header{
+    &:hover{
+        background-color: $accent-darkgrey !important;
+    }
+}
+
+.mat-toolbar, .mat-expansion-panel{
+    background-color: $background;
+    color: $color-text;
+    border-bottom: 1px solid $accent-darkgrey;
+    justify-content: space-between;
+}
+
+.mat-toolbar{
+     gap: 3rem;
+    //  img { height: 30px} after 390px -> 25px dynamic
+    img{ height: clamp(1.5625rem, -1.171875rem + 12.5vw, 1.875rem);}
+     justify-content: space-between;;
+}
+
+
+mat-panel-title{
+    color: $color-text;
+}
+
+mat-drawer-container{
+    background-color: $accent-darkgrey;
+    color: $color-text;
+}
+
+mat-drawer-content {
+    // margin-left: 100px;
+    background-color: $background-second;
+    color:white;
+}
+
+.expanded-menu {
+  margin-left: 100px;
+}
+
+.mat-drawer-container{
+    height: 100vh;
+}
+
+.mat-toolbar{
+    min-height:3.5rem;
+    height: 3.5rem;
+}
+
+.menu-icon{
+    cursor: pointer;
+}
+.sidenav{
+    width:18.75rem;
+    background-color: $background;
+    color: $color-text;
+   
+}
+.logo-container{
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    padding: 0 1rem;
+    min-height:3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.icon-menu{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li{
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+        height: 3rem;
+        cursor: pointer;
+        &:hover{
+            background-color: $accent-darkgrey;
+        }
+
+        mat-icon{
+            margin-right: 1rem;
+        }
+    }
+}
+
+.nav-link.active{
+    background-color: $accent-lightgrey;
+}
+
+.content{
+    margin-top: 3rem;
+    overflow-y: auto;
+  
+}
+
+.expansion-header{
+    padding:0 10px !important;
+}
+
+.mat-expansion-panel-body {
+  padding: 0 !important;
+  color:$color-text;
+}
+
+.expansion-panel{
+    color: $color-text !important;
+    gap: 1.2rem;
+}
+
+.channel-item{
+    height: 3rem;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;  
+    cursor: pointer;
+    gap: 1rem;
+        &:hover{
+            background-color: $accent-darkgrey;
+        }
+        p{
+        display:flex;
+        align-items: center;
+        }
+}
+
+.channel-item.active{
+    background-color: $accent-lightgrey;
+}
+
+// TODO ggf. in die unterseiten auslagern, aktuell noch behalten - Positioning from main content  between header and navbar
+main{
+    // padding: 0 10% 0 10%;
+    // padding-top: 2rem;
+    @media (min-width: 768px) {
+        // padding-left: 3.5rem;
+    }   
+}
+
+.loader{
+    inset: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 150px;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    animation: rotate 2s linear infinite;
+}
+
+
+
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+@media(max-width: 1100px){
+    .content {
+         display: flex !important;
+        //  flex-direction: column !important; //AH
+    }
+}
+
+.mat-mdc-radio-button.mat-accent {
+    --mdc-radio-disabled-selected-icon-color: #000;
+    --mdc-radio-disabled-unselected-icon-color: #000;
+    --mdc-radio-unselected-focus-icon-color: #212121;
+    --mdc-radio-unselected-hover-icon-color: #212121;
+    --mdc-radio-unselected-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-selected-focus-icon-color: #FFC000;
+    --mdc-radio-selected-hover-icon-color: #FFC000;
+    --mdc-radio-selected-icon-color: #FFC000;
+    --mdc-radio-selected-pressed-icon-color: #FFC000;
+    --mat-mdc-radio-ripple-color: #000;
+    --mat-mdc-radio-checked-ripple-color: #FFC000;
+} 
+
+.chat-expansion-panel {
+    margin: 0 !important;
+}
+
+.chat-item img{
+        height: 35px;
+        width: auto;
+        object-fit: contain;
+        border-radius: 10px;
+}
+
+.cdk-overlay-pane {
+    max-width: 100vw !important;
+}
+
+
+//info-user-componente.html
+@media (max-width: 650px){
+  
+    .mat-mdc-dialog-surface {
+        width: 150% !important;
+    }
+}

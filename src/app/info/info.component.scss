@@ -1,0 +1,96 @@
+// import globale style
+@import "src/_globals.scss";
+
+.infoBox {
+    background-color: $background;
+    color: $color-text;
+    width: 20vw;
+    height: 100vh;
+    text-align: start !important;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    right: 0;
+}
+
+a{
+    text-decoration: none;
+}
+video{
+    margin-top: 1rem;
+    width:250px;
+    height: 200;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+button{
+    background-color: #3a3a3d;
+    border: 2px solid rgb(145, 139, 139);
+    margin: 15px 0;
+    color: $color-text;
+    width: 250px;
+    height: 40px;
+    font-size: 12px;
+    border-radius: 5px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    &:hover{
+        background-color: #78787a;
+    }
+
+}
+
+h2{
+    text-align: start !important;
+    margin: 15px 0;
+    margin-top: 0;
+}
+
+
+
+img{
+    width: 10%;
+    margin: 0 5%;
+}
+
+@media (max-width: 1200px) {
+    
+    video{
+      
+        width:180px;
+        height: 130px;
+    }
+
+    button{
+        width: 190px;
+    }
+}
+
+@media (max-width: 850px) {
+    
+    video{
+      display: none;
+     
+    }
+
+    button{
+    
+        width: 50px;
+        height: 40px;
+        }
+
+    span{
+        display: none;
+    }
+
+        img{
+            width: 80%;
+        }
+}
+
+
+
+

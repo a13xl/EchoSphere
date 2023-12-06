@@ -1,0 +1,5 @@
+<section>
+    <angular-editor [(ngModel)]="editorContent" [config]="editorConfig" (ngModelChange)="onEditorContentChange($event)" > </angular-editor>
+    <mat-icon class="save-btn"(click)="save()">send</mat-icon>
+</section>
+

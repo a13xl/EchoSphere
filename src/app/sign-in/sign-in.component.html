@@ -1,0 +1,55 @@
+<div class="signin-main">
+    <div class="logo">
+        <img src="{{ appComponent.logoName }}" alt="{{ appComponent.title }} Logo">
+    </div>
+
+    <div class="signin-container" [class.d-none]="userSignedIn || forgotPassword">
+        <mat-card>
+            <h1>Sign in</h1>
+            <!-- <span>Stay connected with your friends and colleagues</span> -->
+            <form class="signin-form">
+                
+                    <div class="input-container" [class.error]="errorMsg">
+                        <div class="input">
+                            <input type="text" #emailSignIn required>
+                            <span class="noselect">Email</span>
+                        </div>
+                        <div class="input input-pwd">
+                            <input type="password" #passwordSignIn required>
+                            <span class="noselect">Password</span>
+                            <img class="show-pwd noselect" (click)="toggleShowPwd()"
+                                [src]="pwdImg">
+                        </div>
+                    </div>
+
+                    <a (click)="forgotPassword = true;">Forgot password?</a>
+
+                    <div class="errorBox">
+                        <mat-error *ngIf="errorMsg">
+                            Email or Password invalid!
+                        </mat-error>
+                    </div>
+
+                    <button (click)="signIn(emailSignIn.value, passwordSignIn.value)" class="noselect">
+                        Sign in
+                    </button>
+
+                    <span class="signin-test">Test {{ appComponent.title }} with 
+                        <a (click)="signInAnonymously()">Guest account</a>
+                    </span>
+                    <a (click)="signInTest()">Test Account</a>
+              </form>
+        </mat-card>
+    
+        <span class="sign-up">
+            New to {{ appComponent.title }}? <a href="sign-up">Sign up</a>
+        </span>
+    </div>
+
+    <!-- ========== VERIFY EMAIL ========== -->
+    <app-email-verification [class.d-none]="!userSignedIn"></app-email-verification>
+
+    <!-- ========== FORGOT PASSWORD ========== -->
+    <app-forgot-password [class.d-none]="!forgotPassword"></app-forgot-password>
+
+</div>

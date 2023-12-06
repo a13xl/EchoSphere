@@ -1,0 +1,104 @@
+<div class="relative">
+<div class="relative" *ngIf="router.url === '/sign-up' || authentication.user">
+  <img class="loader" *ngIf="loadingService.getLoadingState()" src="assets/img/slack-logo-img.png" alt="loading...">
+  <header *ngIf="!logSide">
+    <mat-toolbar>
+      <div class="header-left">
+        <mat-icon class="menu-icon" (click)="onToggleSidebar()">{{ this.drawer.opened ? 'close' : 'menu' }}</mat-icon>
+        <img class="logo" src="assets/img/LogoName.png" alt="Slack">
+      </div>
+
+      <div class="header-right">
+        <!-- <button class="infoButten" (click)="switchVisible()">?</button> -->
+        <mat-icon class="infoBtn" (click)="switchVisible()"> question_mark </mat-icon>
+       <!-- show the pic from login user if is logged-in -->
+      <img *ngIf="currentUserImage" class="loginAvatar" (click)="setStatus()" [src]="currentUserImage" alt="">
+
+      <!-- show alternative pic if user is not logged in (should not happend later) -->
+      <!-- <img *ngIf="!authentication.user?.uid || !authentication.user?.photoURL" class="loginAvatar" (click)="setStatus()" src="../assets/img/carmen.png" alt=""> -->
+
+
+      </div>
+    </mat-toolbar>
+  </header>
+
+  <mat-drawer-container class="mat-drawer-container " autosize>
+    <mat-drawer #drawer class="sidenav" [opened]="!isMobileView" [mode]="isMobileView ? 'over' : 'side'">
+      <div class="logo-container"> </div>
+      <ul class="icon-menu">
+        <li class="nav-link" routerLink="/chat/thread" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"
+          (click)="onLinkClicked()"><mat-icon>forum</mat-icon> Threads</li>
+        <li class="nav-link" routerLink="/users" [routerLinkActive]="'active'" (click)="onLinkClicked()">
+          <mat-icon>group</mat-icon>Users
+        </li>
+        <mat-divider></mat-divider>
+
+        <mat-accordion *ngIf="dataLoaded">
+          <mat-expansion-panel [expanded]="panelOpenState1" (opened)="panelOpenState1 = true"
+            (closed)="panelOpenState1 = false" hideToggle>
+            <mat-expansion-panel-header class="expansion-header">
+              <mat-panel-title class="expansion-panel">
+                <mat-icon>{{ panelOpenState1 ? 'arrow_drop_down' : 'arrow_right' }}</mat-icon>
+                Channels
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <!-- Render all channels -->
+
+            <div class="channel-item" [routerLinkActive]="'active'" *ngFor="let channel of allChannels"
+              [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/chat', channel.id]" (click)="onLinkClicked()">
+              <mat-icon> {{channel.channelType === 'public' ? 'tag' : 'lock' }}</mat-icon>
+              <div>{{channel.channelName}}</div>
+            </div>
+
+
+            <div class="channel-item" (click)="openDialog('400ms', '400ms')"><mat-icon>add</mat-icon> Create new channel
+            </div>
+
+          </mat-expansion-panel>
+          <mat-expansion-panel class="chat-expansion-panel" [expanded]="panelOpenState2" (opened)="panelOpenState2 = true"
+            (closed)="panelOpenState2 = false" hideToggle>
+            <mat-expansion-panel-header class="expansion-header">
+              <mat-panel-title class="expansion-panel">
+                <mat-icon>{{ panelOpenState2 ? 'arrow_drop_down' : 'arrow_right' }}</mat-icon>
+                Direct Messages
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <!-- ////////// CHAT CONTENT ////////// --> 
+            <!-- removed: [routerLinkActive]="'active'" [routerLink]="['/chat']" -->
+            <div *ngFor="let chat of personalChatsWithUsernamesAndPhotos"
+              [routerLink]="['/chat/dm', chat.id]" > 
+              <div class="channel-item chat-item" *ngIf="chat.message.length > 0"
+                (click)="onLinkClicked()">
+                <img src="{{ chat.photo }}" alt="Profilepicture of {{ chat.partner }}">
+                <div>
+                  {{ chat.partner }}
+                </div>
+              </div>
+            </div>
+            
+          </mat-expansion-panel>
+        </mat-accordion>
+
+      </ul>
+
+    </mat-drawer>
+
+    <div class="content">
+      <div class="router">
+        <router-outlet></router-outlet>
+      </div>
+      <!-- TODO : Idee für Responsive - mit auf Width 100 vw bzw. % gehen und öffnen bzw. schließen aus der entsprechenden Ansicht -->
+      <div class="box"> 
+        <app-info></app-info>
+      </div>
+    </div>
+
+  </mat-drawer-container>
+</div>
+
+
+
+<div class="relative" *ngIf="!authentication.user && router.url != '/sign-up'">
+  <app-sign-in></app-sign-in>
+</div> 

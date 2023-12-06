@@ -1,0 +1,103 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import "src/_globals.scss";
+
+/* $background: #202124;
+$background-second: #282A2D;
+
+$color-text: #fff;
+$color-warning: #ff9800;
+$color-error: #f44336;
+$color-success: #4caf50;
+$color-info: #2196f3;
+
+$accent-darkgrey:#353535;
+$accent-lightgrey:#838383; */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    box-sizing: border-box;
+    color: $color-text;
+    background-color: $background;
+}
+
+.mr-3 {
+    margin-right: 3em;
+}
+
+.relative {
+    position: relative;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.in-bg {
+    opacity: 0.8;
+    filter: blur(2px);
+}
+
+.noselect {
+    -moz-drag-over: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+.post-message img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.text-small {
+    font-size: $small;
+    color: $accent-lightgrey;
+}
+
+.link {
+    color: $color-info;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+
+
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,207 @@
+// import globale style
+@import "src/_globals.scss";
+
+$margin-width: 20px;
+$border-default: 1px solid rgba(255,255,255,0.2);
+$background-hover: #313337;
+
+section {
+    height: calc(100vh - 60px);
+//    width: calc(100vw - 21.3rem);
+    width: 100%;
+}
+
+p {
+    margin: 0;
+}
+
+.users-fixed-container {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: calc(100% - $margin-width);
+    //width: calc(100vw - 21.3rem);
+    max-width: 100%;
+    background: $background-second;
+
+    z-index: 1;
+}
+
+.users-header {
+    height: 3rem;
+    width: calc(100% - $margin-width);
+    padding: 16px $margin-width 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #353535;
+
+    p {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    button {
+        height: 28px;
+        min-width: 56px;
+        padding: 0px 12px 1px;
+        font-size: 13px;
+        color: white;
+        background: $background-second;
+        border: $border-default;
+        border-radius: 3px;
+        transition: all 80ms linear 0s;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover {
+            background: $background-hover;
+        }
+    }
+}
+
+.users-search {
+    $padding-site: 8px;
+
+    height: 30px;
+    width: calc(100% - ($margin-width) - 18px);
+    margin: 16px $margin-width;
+    padding: 0 $padding-site;
+
+    border-radius: 5px;
+    border: $border-default;
+    background: $background-second;
+    display: flex;
+    align-items: center;
+    cursor: text;
+
+    &:hover {
+        border: 1px solid rgba(255,255,255,0.6);;
+    }
+
+    &:focus-within {
+        border: 1px solid transparent;
+        box-shadow: 0 0 0 1px $color-logo-blue, 0 0 0 5px #1d9bd14d;
+    }
+
+    img {
+        width: 14px;
+        filter: invert(0.7);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input {
+        height: calc(100% - 4px);
+        width: calc(100% - ($padding-site * 2));
+        padding: 0 $padding-site;
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 16px;
+        outline: none;
+
+        &::placeholder {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+    }
+
+    mat-icon {
+        filter: invert(0.3);
+        cursor: pointer;
+    }
+}
+
+.num-of-users-container {
+    width: calc(100% - $margin-width);
+    margin: 0 $margin-width;
+    color: rgba(255,255,255,0.7);
+}
+
+.users-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* .emulated-flex-gap > * {
+    margin: 6px;
+} */
+
+.emulated-flex-gap {
+    $margin-sides-users: 6px;
+
+    width: calc(100% - $margin-width - 8px);
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin: 150px calc($margin-width - $margin-sides-users) 0 calc($margin-width - $margin-sides-users);
+
+    > * {
+        margin: $margin-sides-users;
+    }
+}
+
+.user-container {
+    position: relative;
+    height: 260px;
+    width: 176px;
+
+    background: $background-second;
+    border: $border-default;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+        background: $background-hover;
+    }
+
+    img {
+        height: 176px;
+        width: 100%;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+}
+
+.username {
+    $margin: 13px;
+
+    max-height: 100%;
+    width: calc(100% - ($margin * 2));
+    margin: $margin;
+
+    span {
+        width: 100%;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        word-break: break-word;
+        padding-top: 1rem
+    }
+}
+
+/* @media (max-width: 1088px) {
+    section {
+        width: calc(100vw - 22.3rem);
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        width: calc(100vw - 3.6rem);
+    }
+
+    .users-fixed-container {
+        width: calc(100vw - 38px);
+    }
+} */

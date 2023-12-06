@@ -1,0 +1,105 @@
+<section>
+    <div class="container">
+        <div class="header" >
+            <div class="left-items">
+                    <mat-icon> {{channel.channelType === 'public' ? 'tag' : 'lock' }}</mat-icon> 
+                    <h2>{{channel.channelName}}</h2>  
+                    <h2 *ngIf="isThreadView"> Threads </h2>
+                    <h2 *ngIf=" directMessageView"> Direct Message</h2>
+                    <p class="d-none">{{ getPinnedPostCount() }}</p>
+               
+                        <mat-icon 
+                            *ngIf="!isThreadView && !directMessageView"
+                            [class.active-pin]="pinCount > 0"
+                            [class.disabled-pin]="pinCount === 0" 
+                            (click)="pinCount > 0 ? openPinnedPostDialog('400ms', '400ms') : null" 
+                            class="pointer" 
+                            [matBadge]="pinCount" 
+                            [matBadgeHidden]="pinCount === 0" 
+                            >
+                            push_pin
+                        </mat-icon>
+
+
+            </div>
+            <div *ngIf="!isThreadView" class="right-items">
+                        <!-- <button (click)="openEditDialog('400ms', '400ms')" mat-icon-button>
+                             <mat-icon >edit</mat-icon>
+                         </button> -->
+                           <!-- <button mat-icon-button (click)="openDeleteDialog('400ms', '400ms')">
+                             <mat-icon>delete</mat-icon>
+                         </button> -->
+            </div>
+            <!-- <div *ngIf="directMessages" class="left-items"> Direct Message</div> -->
+        </div>
+
+        <div class="main-content">
+
+          <ng-container *ngIf="isThreadView">
+            <div *ngFor="let post of allPosts"  class="single-post">
+              <div *ngIf="shouldShowDate(getPreviousPost(post), post)" class="date-container">
+                <div class="show-date">
+                  <p>{{ post.timestamp | date: 'dd.MM.yyyy' }}</p>
+                </div>
+              </div>
+              <app-post [post]="post"></app-post>
+            </div>
+          </ng-container>
+
+            <ng-container *ngIf="!isThreadView">
+
+              <div class="guest" *ngIf="isGuest && channel.channelType ==='protected'">
+              This area is protected. Only logged in users can see this content. All guests can use the open areas.
+              </div>
+
+              <div *ngIf="!isGuest || channel.channelType !=='protected'">
+                <div *ngFor="let post of allPosts" class="single-post">
+                  <div *ngIf="shouldShowDate(getPreviousPost(post), post)" class="date-container">
+                    <div class="show-date">
+                      <p>{{ post.timestamp | date: 'dd.MM.yyyy' }}</p>
+                    </div>
+                  </div>
+                  <app-post [post]="post"></app-post>
+                </div>
+              </div>
+
+<!-- DirectMessage Part     -->
+          <div *ngFor="let chat of directMessages" class="chat-container"> 
+              <div class="msg-header">
+                  <img [src]="getOtherUserPhoto(chat)" alt="User photo">
+                  <h3>This conversation is only between {{ getOtherUserName(chat) }} and you.</h3>
+              </div>
+              <br> 
+              <div *ngFor="let msg of chat.message; let i = index" class="single-post">
+                  <div *ngIf="shouldShowDMDate(chat.message, i)" class="date-container">
+                      <div class="show-date">
+                          <p>{{ msg.timestamp | date: 'dd.MM.yyyy' }}</p>
+                      </div>
+                  </div>
+                  <app-direct-message [directMessage]="msg"></app-direct-message>
+              </div>
+          </div>
+
+      </ng-container>
+    </div>
+
+   <!-- *ngIf="!isThreadView"  -->
+
+    <ng-container *ngIf="!isGuest || channel.channelType !== 'protected'">
+            <div class="app-text-edit" *ngIf="directMessages && directMessages.length > 0">
+                <app-text-edit [context]="'directmessage'"></app-text-edit>
+            </div>
+            <div class="app-text-edit" *ngIf="!directMessages || directMessages.length === 0">
+                <app-text-edit [context]="'channel'"></app-text-edit>
+            </div>
+        </ng-container>
+<!-- 
+        <div class="app-text-edit" *ngIf="!isGuest || channel.channelType !== 'protected'">
+              <app-text-edit context="channel"></app-text-edit>
+        </div> -->
+    </div>
+
+
+</section>
+
+

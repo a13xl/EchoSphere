@@ -1,0 +1,147 @@
+// import globale style
+@import "src/_globals.scss";
+
+
+.setUserBackground{
+    color: $color-text;
+    background-color: $background-second;
+    border:2px solid aliceblue;
+    height: 99%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+   
+   
+    h1{
+        padding: 20px 0 0 20px;
+        font-weight: bolder;
+        color: rgb(255, 255, 255);
+        background-color: $background-second;
+        letter-spacing: 0.2rem;
+    }
+}
+
+.form-group{
+    width: 100px;
+
+    img {
+        filter: invert(1);
+    }
+}
+
+.setUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 99%;
+    
+}
+
+h1 {
+    font-weight: bolder;
+    color: black;
+    background-color: $background-second;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.setImg {
+    width: 45%;
+    height: 80%;
+    border-radius: 5px;
+    margin-right: 40px;
+    object-fit:cover;
+    
+
+}
+
+    button {
+        width: 80%;
+        color: white;
+        margin: 40% 0 0 0;
+        border: 0.1rem solid white;
+        background-color: #4c5055;
+        border-radius: 5px;
+        &:hover{
+            background-color: #73787e;
+        }
+    }
+
+
+    input {
+        margin: 4% 0;
+        width: 80%;
+  
+    }
+
+
+
+
+.box {
+    display: flex;
+    justify-content: center;
+}
+
+.flexdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.icon{
+    color: #282A2D;
+}
+
+.name{
+    color: #282A2D;
+    border: none !important;
+}
+
+.is-invalid {
+    background-color: red;
+}
+
+.nameIcon{
+    margin-left: 15px;
+    width: 20px;
+    &:hover{
+        background-color: #4c5055;
+        border-radius: 5%;
+    }
+   
+}
+
+label{
+    margin: 15px 0 15px 0;
+    font-size: 20px;
+}
+
+
+
+@media (max-width: 1000px)  {
+    .setImg {
+        width: 35%;
+        height: 60%;
+        margin-right: 20px;
+      
+    }
+    
+
+    button {
+        width: 50%;
+        margin: 40% 0 0 0;
+     
+    }
+      
+}
+
+@media (max-width: 500px)  {
+
+    input {
+        width: 50%;
+        margin: 4% 0;
+  
+    }
+}

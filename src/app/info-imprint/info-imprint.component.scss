@@ -1,0 +1,13 @@
+// import globale style
+@import "src/_globals.scss";
+
+.imprint {
+    color: $color-text;
+    background-color: $background-second;
+    padding: 8%;
+
+    a {
+        text-decoration: none;
+        color:$color-logo-yellow;
+    }
+}

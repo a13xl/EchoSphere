@@ -1,0 +1,67 @@
+@import "src/_globals.scss";
+section{
+         background: $background-second
+         
+}
+
+h2{
+ margin:0;
+   
+}
+
+mat-icon{
+    cursor: pointer;
+    &hover{
+        color: $color-info;
+    }
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10%;
+    padding: 10px 0;
+}
+
+.show-date{
+    position: absolute;
+    top: 0;
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    p {
+        position: relative;
+        z-index: 1;
+        background-color: $background-second;
+        padding: 0px 5px 0 5px;
+        border-radius: 10%;
+    }
+
+}
+
+.show-date::before {
+    content: "";
+    position: absolute;
+    top: 32%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: $accent-darkgrey;
+    transform: translateY(-50%);
+}
+
+.main-content{
+    overflow-y: auto;
+   
+}
+
+.single-post{
+ position: relative;
+}
+
+.single-post:first-child {
+  padding-top: 10px;
+}

@@ -1,0 +1,41 @@
+<section>
+  <div class="user-container">
+      <div class="user-photo">
+        <img src="{{ data.user.photo }}" alt="Profile Picture from {{ data.user.username }}">
+      </div>
+
+      <div class="user-name" *ngIf="data.user.id != currentUserId">
+        <h1>{{ data.user.username }}</h1>
+        <button mat-button class="btn-message" (click)="openChat(data.user.id)">
+          <span>
+            <img src="assets/img/icons/chat.png" alt="Chat Icon">
+            Message
+          </span>
+        </button>
+      </div>
+
+      <div class="user-name" *ngIf="data.user.id == currentUserId">
+        <h1>{{ data.user.username }} (you)</h1>
+        <button mat-button class="btn-edit btn-message" (click)="openEdit(data.user.id)">
+          <span>
+            <img src="assets/img/icons/pencil.png" alt="Pencil Icon">
+            Edit
+          </span>
+        </button>
+      </div>
+
+      <div class="user-contact">
+        <h2>Contact information</h2>
+        <div class="email-container">
+          <img src="assets/img/icons/mail.png" alt="Email Icon" class="noselect">
+          <div>
+            <span>Email Address</span>
+            <a href="mailto:{{ data.user.email }}">{{ data.user.email }}</a>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div mat-dialog-actions class="btn-close">
+    <button mat-button mat-dialog-close>Close</button>
+  </div>
+</section>

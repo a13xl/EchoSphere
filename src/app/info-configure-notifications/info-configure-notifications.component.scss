@@ -1,0 +1,67 @@
+// import globale style
+@import "src/_globals.scss";
+
+
+
+.wholeDiv {
+    color: $color-text;
+    background-color: $background-second;
+    padding: 8%;
+    line-height: 25px;
+
+    h1 {
+        font-weight: bolder;
+        margin: 0;
+    }
+}
+
+.tipp {
+    margin: 5% 0;
+    padding: 3%;
+    border: 1px solid $color-logo-yellow;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import globale style
+// @import "src/_globals.scss";
+
+
+
+
+// .wholeDiv {
+//     color:  $color-text;
+//     background-color: $background-second;
+//     padding: 8%;
+//     line-height: 25px;
+
+//     .box {
+//         padding: 3%;
+//         border: 1px solid $color-logo-yellow;
+//         margin: 5% 0;   
+//     }
+
+//     h1 {
+//         font-weight: bolder;
+//         margin: 0;
+//     }
+// }
+
+// .tipp {
+//     margin: 5% 0;
+//     padding: 3%;
+//     border: 1px solid $color-logo-yellow;
+// }

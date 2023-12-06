@@ -1,0 +1,68 @@
+// import globale style
+@import "src/_globals.scss";
+// import sign-in style
+@import "src/app/sign-in/sign-in.component.scss";
+
+$input-font-size: 1.2rem;
+$input-padding: 12px;
+$input-focus-border: 0 0 0 1px #0073b1;
+$input-border: 1px solid rgba(255,255,255,0.25);
+$card-box-shadow: 0px 4px 6px rgba(255,255,255,0.15), 0px 0px 2px rgba(255,255,255,0.15);
+$card-background: #1d2b3a;
+$slack-green: #2eb67d;
+$slack-blue: #36c5f0;
+
+.signin-main {
+    padding: 0;
+}
+
+.input-container {
+    gap: unset;
+}
+
+.errorTxt {
+    min-height: 35px;
+    max-height: 50px;
+    font-size: 14px;
+    color: $color-error;
+}
+
+.show-pwd {
+    cursor: pointer;
+}
+
+.errorBorder input {
+    border-color: $color-error;
+    -webkit-box-shadow: 0 0 0 1px $color-error;
+    box-shadow: 0 0 0 1px $color-error;
+
+    &:focus {
+        border-color: $color-error;
+        -webkit-box-shadow: 0 0 0 1px $color-error;
+        box-shadow: 0 0 0 1px $color-error;
+    }
+}
+
+.overlay-msg {
+    position: absolute;
+    padding: 20px 30px;
+    background-color: #004164;
+    box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.15), 0px 0px 2px rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    line-height: normal;
+}
+
+// ======== MEDIA ========
+@media (max-height: 705px) {
+    .signin-container {
+        margin-top: 35px;
+    }
+
+    .logo img {
+        position: absolute;
+        top: 5px;
+    }
+}

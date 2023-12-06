@@ -1,0 +1,188 @@
+// import globale style
+@import "src/_globals.scss";
+
+$margin-sides: 20px;
+
+section {
+    width: 400px;
+    max-width: 100%;
+    background: $background;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, div, button {
+    color: white !important;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+button {
+    background: $accent-darkgrey;
+
+    &:hover {
+        background: $accent-lightgrey;
+    }
+}
+
+a {
+    color: #8bc8ff;
+
+    &:hover {
+        color: #c8dbff;
+    }
+}
+
+.user-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-photo {
+    width: calc(100% - ($margin-sides * 2));
+    margin: 20px $margin-sides 0;
+    display: flex;
+    justify-content: center;
+
+    img {
+        height: 250px;
+        width: 250px;
+        border-radius: 10px;
+    }
+}
+
+.user-name {
+    width: calc(100% - ($margin-sides * 2));
+    padding: 0 $margin-sides 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+
+    h1 {
+        margin-top: 20px;
+        font-weight: 500;
+        word-break: break-word;
+    }
+}
+
+.btn-message {
+    width: 150px;
+    background: $background;
+    border: 1px solid rgba(255,255,255,0.2);
+
+    &:hover {
+        background: $accent-lightgrey;
+    }
+
+    img {
+        height: 20px;
+        width: auto;
+        object-fit: contain;
+        filter: invert(1);
+    }
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+.btn-edit {
+    width: 105px;
+}
+
+.user-contact {
+    width: calc(100% - ($margin-sides * 2));
+    margin: 20px $margin-sides 10px;
+}
+
+.email-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    img {
+        height: 20px;
+        filter: invert(1);
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.btn-close {
+    width: 100%;
+    justify-content: flex-end;
+
+    button {
+        margin: 0 20px 10px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    section {
+        width: 100%;
+    }
+}
+
+@media screen and (max-height: 690px) {
+    section{
+        width: 100vw;
+        height: 100vh;
+        justify-content: space-between;
+    }
+
+    .user-name, .user-contact {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .btn-close {
+        margin-bottom: 20px;
+        justify-content: center;
+        align-items: center;
+
+        button {
+            height: 60px;
+            width: 125px;
+        }
+    }
+}
+
+@media screen and (max-height: 599px) {
+    .user-photo img{
+        $photo-size: 120px;
+
+        height: $photo-size;
+        width: $photo-size;
+    }
+}
+
+@media screen and (max-height: 469px) {
+    section {
+        padding-top: 20px;
+        justify-content: space-evenly;
+    }
+
+    .user-container {
+        height: 80vh;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .user-photo, .user-name, .user-contact {
+        width: unset;
+        border-bottom: none;
+    }
+
+    .user-photo {
+        margin: 0;
+    }
+}

@@ -1,0 +1,22 @@
+<section>
+    <div>
+        <h1>Invite your friends to {{ appComponentContent.title }}</h1>
+    </div>
+
+    <div class="input-container">
+        <h3>To:</h3>
+        <input #inputInviteEmail type="text" [class.input-error]="emailErrorTxt"
+            (keydown)="sendInviteKey($event, inputInviteEmail.value)">
+        <div class="error-copy-box">
+            <div class="error-box">{{ emailErrorTxt }}</div>
+            <a (click)="copyInviteLink()">Copy invite link</a>
+        </div>
+    </div>
+
+    <!-- <div> -->
+        <div mat-dialog-actions class="btn-close-send">
+            <button id="sendInvite" mat-button mat-dialog-close>Close</button>
+            <button mat-button (click)="sendInviteBtn(inputInviteEmail.value)">Send</button>
+        </div>
+    <!-- </div> -->
+</section>

@@ -1,0 +1,233 @@
+// import globale style
+@import "src/_globals.scss";
+
+$height-default: calc(100vh - 3rem); /* calc(100vh - 65px); */
+$height-logo: 40px;
+$input-font-size: 1.2rem;
+$input-padding: 12px;
+$input-focus-border: 0 0 0 1px #0073b1;
+$input-border: 1px solid rgba(255,255,255,0.25);
+$card-box-shadow: 0px 4px 6px rgba(255,255,255,0.15), 0px 0px 2px rgba(255,255,255,0.15);
+$card-background: #3A62A7;
+$hover-blue: #c8dbff;
+$btn-background: $color-logo-blue;
+
+a {
+    //color: $color-info;
+    color: #8bc8ff;
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:hover {
+        //color: #d3d3d3;
+        color: #c8dbff;
+    }
+}
+
+.signin-main {
+    height: $height-default;
+    max-height: 100%;
+    width: 100vw;
+    max-width: 100%;
+    padding-top: 3rem;
+    background-color: $background-second;
+    font-size: 18px;
+}
+
+.logo {
+    max-width: 1128px;
+    margin: auto;
+    padding: 0 30px;
+
+    img {
+        height: $height-logo;
+    }
+}
+
+.signin-container {
+    height: calc($height-default - $height-logo - 4px);
+    max-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    color: $color-text;
+    background-color: $background-second;
+
+    mat-card {
+        width: 350px;
+        padding: 32px;
+        border-radius: 8px;
+        box-shadow: $card-box-shadow;
+        background: $card-background;
+    }
+
+    h1 {
+        margin: 0 0 12px 0;
+        font-size: 36px;
+        font-weight: 500;
+    }
+}
+
+.signin-form {
+    margin-top: 16px;
+    margin-bottom: 8px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    height: 50px;
+    font-size: 26px;
+    border-radius: 12px;
+    color: $color-text;
+    background: $btn-background;
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+        background: $hover-blue;
+        color: #355B7D;
+        font-weight: 600;
+    }
+}
+
+.input-container {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.input {
+    position: relative;
+
+    input {
+        height: calc(48px - $input-padding - $input-padding);
+        width: calc(100% - $input-padding - $input-padding);
+        padding: 20px 12px 4px;
+
+        background-color: white;
+        color: black;
+        font-size: $input-font-size;
+        border-radius: 5px;
+        border: $input-border;
+        outline: none;
+
+        &:focus {
+            border-color: #0073b1;
+            -webkit-box-shadow: $input-focus-border;
+            box-shadow: $input-focus-border;
+        }
+
+        &:valid ~ span, &:focus ~ span {
+            font-size: 1rem;
+            transform: translateX(-3px) translateY(calc($input-padding * -1));
+        }
+    }
+
+    span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: calc($input-padding + 2px);
+        //color: #9999;
+        color: #3f3f3f99;
+        font-size: $input-font-size;
+        pointer-events: none;
+        transition: 150ms;
+    }
+}
+
+.input-pwd {
+    input {
+        width: calc(100% - $input-padding - 48px);
+        padding-right: 48px
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 30px;
+        margin: 10px;
+        background-size: contain;
+        filter: invert(62%) sepia(41%) saturate(10%) hue-rotate(23deg) brightness(91%) contrast(88%);
+
+        cursor: pointer;
+    }
+}
+
+.signin-test {
+    margin-top: 30px;
+    text-align: center;
+
+    a {
+        cursor: pointer;
+    }
+}
+
+.errorBox {
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    mat-error {
+        //font-size: 1.5rem;
+        text-align: center;
+    }
+}
+
+.error input {
+    border-color: $color-error;
+    -webkit-box-shadow: 0 0 0 1px $color-error;
+    box-shadow: 0 0 0 1px $color-error;
+
+    &:focus {
+        border-color: $color-error;
+        -webkit-box-shadow: 0 0 0 1px $color-error;
+        box-shadow: 0 0 0 1px $color-error;
+    }
+}
+
+// ======== MEDIA ========
+@media (max-width: 1187px) {
+    .signin-main {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 414px) OR (max-height: 686px) {
+    .signin-container {
+        gap: 0;
+
+        mat-card {
+            width: unset;
+            background-color: transparent;
+            box-shadow: unset;
+        }
+    }
+}
+
+@media (max-width: 399px) {
+    .logo {
+        padding: 0;
+    }
+}
+
+@media (max-height: 685px) {
+    .signin-container {
+        margin-top: 0;
+        height: unset;
+        max-height: unset;
+    }
+}
+
+@media (max-height: 592px) {
+    
+}

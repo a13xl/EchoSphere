@@ -1,0 +1,111 @@
+// import globale style
+@import "src/_globals.scss";
+
+
+section {
+    width: 500px;
+    max-width: 100%;
+    height: 350px;
+    max-height: 100%;
+    padding: 20px 20px 5px;
+    background: $background;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1, div, button, input {
+    color: white !important;
+    word-break: break-word;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    margin: 0;
+}
+
+button {
+    background: $accent-darkgrey;
+
+    &:hover {
+        background: $accent-lightgrey;
+    }
+}
+
+a {
+    color: #8bc8ff;
+    cursor: pointer;
+
+    &:hover {
+        color: #c8dbff;
+    }
+}
+
+input {
+    $padding-sides: 20px;
+
+    width: calc(100% - (2*$padding-sides));
+    padding: 10px $padding-sides;
+
+    background: $background-second;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 18px;
+
+    &:hover {
+        border: 1px solid rgba(255,255,255,0.6);;
+    }
+
+    &:focus-within {
+        border: 1px solid transparent;
+        box-shadow: 0 0 0 1px $color-logo-blue, 0 0 0 5px #1d9bd14d;
+    }
+}
+
+.input-error {
+    $border: 1px solid transparent;
+    $box-shadow: 0 0 0 1px red, 0 0 0 5px #d11d1d4d;
+
+    border: $border;
+    box-shadow: $box-shadow;
+
+    &:focus-within {
+        border: $border;
+        box-shadow: $box-shadow;
+    }
+}
+
+.error-copy-box {
+    height: 20px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.error-box {
+    color: red !important;
+}
+
+/* .copy-link {
+    width: 100%;
+    text-align: right;
+} */
+
+.btn-close-send {
+    justify-content: space-between;
+    margin: 40px 0 0;
+    padding: 0;
+}
+
+// ========= MEDIA =========
+@media screen and (max-width: 540px) {
+    section {
+        width: unset;
+    }
+}

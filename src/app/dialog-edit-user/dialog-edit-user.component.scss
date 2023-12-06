@@ -1,0 +1,139 @@
+// import globale style
+@import "src/_globals.scss";
+
+// import dialog-show-user
+@import "src/app/dialog-show-user/dialog-show-user.component.scss";
+
+h2 {
+    margin: 0;
+}
+
+input {
+    padding: 5px 10px;
+    background: none;
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 65%;
+    font-size: 18px;
+    color: white;
+}
+
+button {
+    img {
+        height: 15px;
+    }
+}
+
+.user-photo img {
+    $photo-size: 200px;
+
+    height: $photo-size;
+    width: $photo-size;
+    margin-bottom: 20px;
+}
+
+.username-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.error {
+    //height: 1.2rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    color: $color-error !important;
+}
+
+.btn-edit {
+    width: 80px;
+    height: 30px;
+
+    /* img {
+        height: 15px;
+    } */
+}
+
+.edit-overlay {
+    position: relative;
+    width: calc(100% - ($margin-sides * 2));
+    margin: 20px $margin-sides 0;
+}
+
+.password {
+    font-size: 18px;
+    color: $color-logo-blue;
+    cursor: pointer;
+
+    &:hover {
+        color: $color-info;
+    }
+}
+
+.email-address-and-btn {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row !important;
+}
+
+.btn-close {
+    justify-content: space-between;
+}
+
+.btn-bottom {
+    span {
+        display: flex;
+        align-items: center;
+    }
+
+    img {
+        margin-right: 10px;
+        filter: invert(1);
+    }
+}
+
+.input-pwd {
+    $input-padding: 12px;
+
+    position: relative;
+
+    input {
+        width: calc(100% - $input-padding - 48px);
+        padding-right: 48px;
+        margin-bottom: 15px;
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 30px;
+        margin: 1px 10px;
+        background-size: contain;
+        filter: invert(62%) sepia(41%) saturate(10%) hue-rotate(23deg) brightness(91%) contrast(88%);
+
+        cursor: pointer;
+    }
+}
+
+.error-pwd-container {
+    color: $color-error !important;
+    margin-bottom: 15px;
+}
+
+.pwd-changed {
+    position: absolute;
+    top: 7rem;
+    left: 5rem;
+    padding: 1.3rem;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    background: $accent-lightgrey;
+}
+
+.email-input {
+    width: calc(100% - 20px);
+    margin-bottom: 15px;
+}
