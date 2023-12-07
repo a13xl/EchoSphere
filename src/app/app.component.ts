@@ -119,7 +119,7 @@ export class AppComponent {
    * Start the loading animation, from the loadingService
    */
   startLoading() {
-    this.loadingService.setLoadingState(true);
+    //this.loadingService.setLoadingState(true);
   }
 
   printCurrentUser() {

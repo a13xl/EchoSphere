@@ -1,6 +1,6 @@
 Testuser
 
-| Benutzername | E-Mail                | Passwort  |
+| Benutzername | E-Mail                | Password  |
 |---------------|---------------------------------|-----------------|
 Guest		    |	test-echosphere@trash-mail.com	| test1234%
 MuMax		    |	max.mustermann@trash-mail.com	| gGm$8j~U

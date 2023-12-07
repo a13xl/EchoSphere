@@ -1,4 +1,3 @@
-<div class="relative">
 <div class="relative" *ngIf="router.url === '/sign-up' || authentication.user">
   <img class="loader" *ngIf="loadingService.getLoadingState()" src="assets/img/slack-logo-img.png" alt="loading...">
   <header *ngIf="!logSide">
@@ -84,7 +83,7 @@
 
     </mat-drawer>
 
-    <div class="content">
+    <div [class.content]="router.url != '/sign-in'"> <!-- class="content" -->
       <div class="router">
         <router-outlet></router-outlet>
       </div>

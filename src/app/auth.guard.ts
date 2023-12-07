@@ -28,7 +28,7 @@ export class AuthGuard implements CanActivate {
       // navigate to the sign in page if the user is not logged in
       this.router.navigate(['/sign-in']);
       // TODO delete in Production
-      console.log('AuthGuard: User is not logged in');
+      //console.log('AuthGuard: User is not logged in');
     }
     return isLoggedIn;
   }
