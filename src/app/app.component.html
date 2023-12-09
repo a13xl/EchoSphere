@@ -8,8 +8,7 @@
       </div>
 
       <div class="header-right">
-        <!-- <button class="infoButten" (click)="switchVisible()">?</button> -->
-        <mat-icon class="infoBtn" (click)="switchVisible()"> question_mark </mat-icon>
+        <!-- <mat-icon class="infoBtn" (click)="switchVisible()"> question_mark </mat-icon> -->
        <!-- show the pic from login user if is logged-in -->
       <img *ngIf="currentUserImage" class="loginAvatar" (click)="setStatus()" [src]="currentUserImage" alt="">
 

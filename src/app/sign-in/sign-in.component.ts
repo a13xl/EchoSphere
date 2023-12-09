@@ -62,10 +62,11 @@ export class SignInComponent {
     if (await this.authentication.checkAuthUser()) {
       this.userSignedIn = true;
 
-      if (await this.authentication.checkEmailVerification()) {
+      if (await this.authentication.checkEmailVerification()) {       
         // go back
         this.navigation.navigateToPreviousPage();
       }
     }
   }
+  
 }

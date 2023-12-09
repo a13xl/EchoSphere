@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { EmailAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, 
   reauthenticateWithCredential, signOut, sendEmailVerification, sendPasswordResetEmail, 
-  signInWithEmailAndPassword, updateEmail, updatePassword, updateProfile, User} from '@angular/fire/auth';
+  signInWithEmailAndPassword, updateEmail, updatePassword, User} from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +19,7 @@ export class AuthenticationService {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       this.user = userCredential.user;
-
-      console.log(this.user);
-      
+      //console.log(this.user);
       this.emailVerification();
       return this.user.uid;
     } catch (error: any) {

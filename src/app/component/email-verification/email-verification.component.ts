@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+import { NavigationService } from 'src/app/service/navigation.service';
 
 @Component({
   selector: 'app-email-verification',
@@ -12,7 +13,7 @@ export class EmailVerificationComponent {
 
 
   constructor(public authentication: AuthenticationService,
-    public appComponent: AppComponent) { }
+    public appComponent: AppComponent, public navigation: NavigationService) { }
 
   sendVerification() {
     this.verificationSended = true;
@@ -20,6 +21,7 @@ export class EmailVerificationComponent {
 
     setTimeout(() => {
       this.verificationSended = false;
+      this.navigation.navigateToSignIn();
     }, 3000);
   }
 }
