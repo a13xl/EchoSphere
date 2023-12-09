@@ -21,7 +21,7 @@ export class EmailVerificationComponent {
 
     setTimeout(() => {
       this.verificationSended = false;
-      this.navigation.navigateToSignIn();
+      this.navigation.navigateToHome();
     }, 3000);
   }
 }
