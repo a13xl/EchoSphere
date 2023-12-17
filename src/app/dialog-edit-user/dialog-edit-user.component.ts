@@ -218,11 +218,16 @@ export class DialogEditUserComponent {
 
   saveEmail() {
     this.loadingEmail = true;
+    const oldEmail = this.currentUser.email;
+
+    console.log('old Email is:', oldEmail);
+    
 
     if(this.valEmail()) {
       if(this.saveEmailAuth()) {
         if (this.saveEmailFirebase()) {
-
+          this.newEmailValue = oldEmail;
+          this.saveEmailAuth();
         }
       }
     }
