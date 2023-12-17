@@ -41,6 +41,7 @@ export class DialogEditUserComponent {
   errorEmailTxt: string;
   newEmailValue: string;
   repeatEmailValue: string;
+  emailChangeSuccess: boolean = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
     public firestoreUserService: FirestoreUserService,
@@ -216,18 +217,23 @@ export class DialogEditUserComponent {
     }
   }
 
-  saveEmail() {
+  async saveEmail() {
     this.loadingEmail = true;
     const oldEmail = this.currentUser.email;
-
-    console.log('old Email is:', oldEmail);
-    
-
-    if(this.valEmail()) {
-      if(this.saveEmailAuth()) {
-        if (this.saveEmailFirebase()) {
+        
+    if(await this.valEmail()) {     
+      if(await this.saveEmailAuth()) {
+        if (await this.saveEmailFirebase()) {
+          this.emailChangeSuccess = true;
+          this.getUser();
+          setTimeout(() => {
+            this.emailChangeSuccess = false;
+            this.toggleEmailEdit();
+          }, 5000);
+        } else {
           this.newEmailValue = oldEmail;
-          this.saveEmailAuth();
+          await this.saveEmailAuth();
+          this.errorEmailTxt = `Couldn't change Email. Please try it later.`;
         }
       }
     }
@@ -258,7 +264,7 @@ export class DialogEditUserComponent {
     }
   }
 
-  async valEmail() {
+  async valEmail(): Promise<boolean> {
     const email = this.newEmailValue;
     const repeatEmail = this.repeatEmailValue;
 

@@ -3,6 +3,7 @@ import { Firestore, collection, doc, getDoc, getDocs, limit,
    orderBy, query, setDoc, updateDoc } from '@angular/fire/firestore';
 import { User } from 'src/models/user.class';
 import { AuthenticationService } from './authentication.service';
+import { getAuth, updateEmail } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +38,7 @@ export class FirestoreUserService {
   }
 
 
-  async changeEmail(newEmail: string) {
+  /* async changeEmail(newEmail: string) {
     const userId = await this.authentication.getUserId();
     const docRef = doc(this.firestore, 'users', `${userId}`);
 
@@ -48,12 +49,19 @@ export class FirestoreUserService {
       
       return false;
     }
+  } */
 
-    /* await updateDoc(docRef, {email: newEmail})
-      .then((e) => { })
-      .catch((err) => {
-        console.log('Error while changing Username', err);
-    }); */
+  async changeEmail (newEmail: string) {
+    const auth = getAuth();
+
+    try {
+      await updateEmail(auth.currentUser, newEmail)
+      console.log('email updated to', newEmail);
+      return true;
+    } catch (error) {
+      console.error('error while changing email', error);
+      return false;
+    }
   }
 
   async changePhoto(newPhotoUrl: string) {
