@@ -78,7 +78,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.readData();
-    this.printCurrentUser();
+    //this.printCurrentUser();
     this.pathCheck();
     this.getCurrentUserId();
     this.getCurrentUserImage();
@@ -93,20 +93,20 @@ export class AppComponent {
         )
       )
       .subscribe((event: NavigationEnd) => {
-        console.log(event.urlAfterRedirects);
+        //console.log(event.urlAfterRedirects);
         if (
           event.urlAfterRedirects === '/sign-in' ||
           event.urlAfterRedirects === '/sign-up'
         ) {
-          console.log('drawer closed pfad');
+          //console.log('drawer closed pfad');
           this.logSide = true;
-          console.log('bin ich auf loginseite',this.logSide);
-          console.log('Sidebar: ', this.isSidebarOpened);
+          //console.log('bin ich auf loginseite',this.logSide);
+          //console.log('Sidebar: ', this.isSidebarOpened);
           // this.drawer.close();
           this.isSidebarOpened = false;
         } else {
           this.logSide = false;
-          console.log('nicht auf login/up: ', this.logSide);
+          //console.log('nicht auf login/up: ', this.logSide);
           if (window.innerWidth >= 768) {
             // this.drawer.open();
             this.isSidebarOpened = true;
@@ -188,7 +188,7 @@ export class AppComponent {
    */
   checkViewport() {
     if (this.logSide) {
-      console.log('return from checkviewport');
+      //console.log('return from checkviewport');
       return;
     }
     this.isMobileView = window.innerWidth <= 768; // TODO Adjust the breakpoint as needed
