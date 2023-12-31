@@ -8,16 +8,8 @@ import { Channel } from '../../models/channel.class';
 import { Post } from 'src/models/post.class';
 import { DialogEditChannelComponent } from '../dialog-edit-channel/dialog-edit-channel.component';
 import { DialogDeleteChannelComponent } from '../dialog-delete-channel/dialog-delete-channel.component';
-import { get } from '@angular/fire/database';
 import { AuthenticationService } from '../service/authentication.service';
-import {
-  collection,
-  query,
-  where,
-  getDoc,
-
-  DocumentSnapshot,
-} from 'firebase/firestore';
+import { collection, query, where } from 'firebase/firestore';
 import { LoadingService } from './../service/loading.service';
 import { ChangeDetectorRef } from '@angular/core';
 import { DialogPinnedPostsComponent } from '../dialog-pinned-posts/dialog-pinned-posts.component';
@@ -81,7 +73,7 @@ export class ChatComponent implements OnInit, OnDestroy {
       this.channelId = params['id'];
       this.directMessages = []; // clear the array
       const currentUser = this.authentication.getUserId();
-      console.log('Aktuell angemeldeter Benutzer aus chat:', currentUser);
+      //console.log('Aktuell angemeldeter Benutzer aus chat:', currentUser);
       this.getPinnedPostCount();
       this.getCurrentUserData(currentUser);
       // this.loadUsers();
@@ -96,7 +88,7 @@ export class ChatComponent implements OnInit, OnDestroy {
       if (isDMView) {
         this.directMessageView = true;
         // Call the method to fetch DMs
-        console.log('DM View aus Init', isDMView);
+        //console.log('DM View aus Init', isDMView);
         this.getDirectMessage();
       } else if (this.isThreadView) {
         this.getUserPosts();
@@ -133,20 +125,20 @@ export class ChatComponent implements OnInit, OnDestroy {
     const docRef = doc(this.firestore, 'channels', this.channelId);
     this.unsubscribeChannel = onSnapshot(docRef, (docSnap) => {
       this.channel = new Channel(docSnap.data());
-      console.log(this.channel);
-      console.log(this.channel.channelType);
+      //console.log(this.channel);
+      //console.log(this.channel.channelType);
       this.getPosts();
     });
   }
 
   getDirectMessage() {
-    console.log('DM aufgerufen');
-    console.log('Abruf der Direktnachricht für channelId:', this.channelId);
+    //console.log('DM aufgerufen');
+    //console.log('Abruf der Direktnachricht für channelId:', this.channelId);
 
     const dmRef = doc(this.firestore, 'chats', this.channelId);
     onSnapshot(dmRef, (docSnap) => {
       if (docSnap.exists()) {
-        console.log('Direktnachricht:', docSnap.data());
+        //console.log('Direktnachricht:', docSnap.data());
 
         // Convert the data to a Chat instance and save it in directMessages
         const chat = new Chat(docSnap.data());
@@ -211,7 +203,7 @@ export class ChatComponent implements OnInit, OnDestroy {
 
       this.allPosts = [];
       querySnapshot.forEach((doc) => {
-        console.log('Document data:', doc.data());
+        //console.log('Document data:', doc.data());
         this.processDocumentSnapshotThread(doc);
       });
       this.finalizePostProcessing();
@@ -249,7 +241,7 @@ export class ChatComponent implements OnInit, OnDestroy {
         const userData = docSnap.data();
         this.isGuest =
           userData && userData['guest'] ? userData['guest'] : false;
-        console.log('isGuest: ', this.isGuest);
+        //console.log('isGuest: ', this.isGuest);
       }
     });
   }
@@ -291,7 +283,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   finalizePostProcessing() {
     if (this.hasData) {
       this.sortPosts();
-      console.log('all posts: ', this.allPosts);
+      //console.log('all posts: ', this.allPosts);
       this.stopLoading();
       this.cd.detectChanges();
     } else {

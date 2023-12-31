@@ -65,7 +65,7 @@ export class TextEditComponent {
       this.channelId = params['id'];
     });
     const currentUser = this.authentication.getUserId();
-    console.log('Aktuell angemeldeter Benutzer aus Textedit:', currentUser);
+    //console.log('Aktuell angemeldeter Benutzer aus Textedit:', currentUser);
   }
 
   save() {
@@ -85,7 +85,7 @@ export class TextEditComponent {
   }
 
   async saveDirectMessage() {
-    console.log('saveDirectMessage aufgerufen');
+    //console.log('saveDirectMessage aufgerufen');
     const chatDoc = doc(this.firestore, 'chats', this.channelId); // Annahme: Chat-Daten sind in einer 'chats' Sammlung gespeichert
     const chatSnap = await getDoc(chatDoc);
 
@@ -109,18 +109,18 @@ export class TextEditComponent {
     // aktualisieren des Chat-Dokuments in Firestore
     await updateDoc(chatDoc, { message: chatData['message'] });
 
-    console.log('Direct message added successfully.');
+    //console.log('Direct message added successfully.');
     this.editorContent = ''; // Zurücksetzen des Editors
   }
 
   saveChannelPost() {
-    console.log('savePost aufgerufen');
+    //console.log('savePost aufgerufen');
     //TODO: author actual hardcoded, later dynamic
     //this.post.author = 'hKhYyf1A2qOwLSyxTymq';
     this.post.author = this.authentication.getUserId();
     this.post.timestamp = new Date().getTime();
     this.post.message = this.editorContent;
-    console.log(this.post);
+    //console.log(this.post);
     this.addPost();
   }
 
@@ -150,7 +150,7 @@ export class TextEditComponent {
       this.post.toJson()
     );
     this.post.id = docRef.id;
-    console.log('Document written with ID: ', docRef.id);
+    //console.log('Document written with ID: ', docRef.id);
     this.editorContent = '';
     // Get the current channel object
     const channelDoc = doc(this.firestore, 'channels', this.channelId);
@@ -175,7 +175,7 @@ export class TextEditComponent {
     this.reply.userId = this.authentication.getUserId();
     this.reply.timestamp = new Date().getTime();
     this.reply.message = this.editorContent;
-    console.log(this.reply);
+    //console.log(this.reply);
     this.addReply();
     this.dialogService.closeDialog();
   }
@@ -192,7 +192,7 @@ export class TextEditComponent {
       this.reply.toJson()
     );
     this.reply.id = docRef.id;
-    console.log('Document written with ID: ', docRef.id);
+    //console.log('Document written with ID: ', docRef.id);
     this.editorContent = '';
 
     // Get the current post object

@@ -1,7 +1,7 @@
 import { Component, ViewChild,ChangeDetectorRef } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { Event as NavigationEvent, NavigationEnd, Router } from '@angular/router';
-import { filter, switchMap } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 
 import { ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -10,11 +10,9 @@ import { Firestore, collection, onSnapshot } from '@angular/fire/firestore';
 import { LoadingService } from './service/loading.service';
 import { InfoComponent } from './info/info.component';
 import { AuthenticationService } from './service/authentication.service';
-import { InfoUserComponent } from './info-user/info-user.component';
 import { SharedService } from './service/shared.service';
 import { ChatService } from './service/chat.service';
 import { FirestoreUserService } from './service/firestore-user.service';
-import { BehaviorSubject } from 'rxjs';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 
 @Component({
@@ -195,7 +193,7 @@ export class AppComponent {
     this.drawer.opened = !this.isMobileView;
     this.isSidebarOpened = !this.isMobileView;
     this.drawer.mode = this.isMobileView ? 'over' : 'side';
-    console.log('isSidebarOpenedFromCheckViewpoart', this.isSidebarOpened);
+    //console.log('isSidebarOpenedFromCheckViewpoart', this.isSidebarOpened);
   }
 
   /**
@@ -211,7 +209,7 @@ export class AppComponent {
   onToggleSidebar() {
     this.drawer.toggle();
     this.isSidebarOpened = !this.isSidebarOpened;
-    console.log('isSidebarOpened', this.isSidebarOpened);
+    //console.log('isSidebarOpened', this.isSidebarOpened);
   }
 
   openDialog(
