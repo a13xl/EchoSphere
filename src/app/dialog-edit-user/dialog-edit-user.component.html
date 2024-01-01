@@ -5,7 +5,7 @@
     </div>
 
     <div class="user-name">
-      <div #usernameContainer class="username-container" [ngClass]="{'d-none': isUsernameEditVisible}">
+      <div #usernameContainer class="username-container media-width" [ngClass]="{'d-none': isUsernameEditVisible}">
           <h2>{{ currentUser.username }}</h2>
           <button mat-button class="btn-edit btn-message" *ngIf="!currentUser.guest"
             (click)="toggleUsernameEdit()">
@@ -17,7 +17,7 @@
       </div>
 
       <!-- ========== EDIT USERNAME ========== -->
-      <div #usernameEditContainer class="username-container" [ngClass]="{'d-none': !isUsernameEditVisible}">
+      <div #usernameEditContainer class="username-container media-width" [ngClass]="{'d-none': !isUsernameEditVisible}">
         <input [(ngModel)]="currentUser.username" (keydown)="saveUsernameKey($event)">
         <button id="saveUsername" mat-button class="btn-edit btn-message" 
           (click)="saveUsername(currentUser.username)">
@@ -29,16 +29,16 @@
       </div>
       <!-- ==================== -->
 
-      <div class="error" *ngIf="!currentUser.guest"><span>{{ errorNameTxt }}</span></div>
+      <div class="error media-width" *ngIf="!currentUser.guest"><span>{{ errorNameTxt }}</span></div>
       
-      <a class="password" *ngIf="!currentUser.guest" (click)="togglePwdEdit()">
+      <a class="password media-width" *ngIf="!currentUser.guest" (click)="togglePwdEdit()">
         Change Password
       </a>
     </div>
 
     <div class="user-contact">
-      <h2>Contact information</h2>
-      <div class="email-container">
+      <h2 class="media-width">Contact information</h2>
+      <div class="email-container media-width">
         <img src="assets/img/icons/mail.png" alt="Email Icon" class="noselect">
         <div class="email-address-and-btn">
             {{ currentUser.email }}
